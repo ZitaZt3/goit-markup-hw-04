@@ -50,6 +50,10 @@ background: var(--WHITE, #FFF);
 .header-flex {
     display: flex;
     align-items: center;
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 1px 6px rgba(46, 47, 66, 0.08);
+    
 }
 
 .header-navigation {
@@ -74,14 +78,21 @@ flex-grow: 1;
         padding: 24px 0;
 }
 
+.header-menu-link-after {
+position: relative;
+color: #404bbf;
+}
 
-.box::after {
-    width: 48px;
-    height: 4px;
-    flex-shrink: 0;
-    border-radius: 2px;
-    background: #404BBF;
+.header-menu-link-after::after {
     content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 4px;
+    background-color: #404bbf;
+    border-radius: 2px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-menu-link:hover, .header-menu-link:focus {
@@ -109,6 +120,7 @@ flex-grow: 1;
     letter-spacing: 0.02em;
     display: block;
     padding: 24px 0;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-link:hover, .address-link:focus {
@@ -168,6 +180,7 @@ flex-grow: 1;
 
 .hero-btn:hover, .hero-btn:focus {
     background-color: #404BBF;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==================== */
@@ -232,6 +245,7 @@ position: absolute;
     gap: 24px;
     align-items: center;
     justify-content: center;
+    margin-bottom: 8px;
 
 }
 /* ====================== */
@@ -273,7 +287,8 @@ position: absolute;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-item:hover .icon-link {
+.team-item:hover .icon-link , 
+.team-item:focus .icon-link {
 background-color: #404BBF;
 }
 
@@ -310,6 +325,7 @@ background-color: #404BBF;
 .icon-item {
     width: 40px;
     height: 40px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-link {
@@ -369,16 +385,16 @@ background-color: #404BBF;
 
 .portfolio-item {
    position: relative;
+   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
    
 }
-
 
 .portfolio-item:hover {
 box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-item:hover .portfolio-cover-container {
+.portfolio-item:hover .portfolio-cover-text {
 transform: translateY(0);
 }
 
@@ -407,26 +423,19 @@ transform: translateY(0);
     overflow: hidden;
 }
 
-.portfolio-cover-container {
-    position: absolute;
-    top: 0;
-    background-color: #4D5AE5;
-    height: 100%;
-    transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 40px;
-
-}
-
 .portfolio-cover-text {
-    color:#F4F4FD;
-        font-family: Roboto;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5;
-        letter-spacing: 0.02em;
+position: absolute;
+top: 0;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: 0.02em;
+color: #F4F4FD;
+padding: 40px 32px;
+background-color: #4d5ae5;
+height: 100%;
+width: 100%;
+transform: translateY(100%);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
         
 }
 
@@ -435,15 +444,19 @@ transform: translateY(0);
 /* ============FOOTER======== */
 
 .footer {
-    background:#2E2F42;
+    background: #2E2F42;
     padding-bottom: 100px;
     padding-top: 100px;
    
-    
+}
+
+.footer-footer {
+    display: flex;
+    align-items: baseline;
 }
 
 .footer-box {
-    
+    margin-right: 120px;
 }
 
 .footer-logo-link {
@@ -473,21 +486,16 @@ transform: translateY(0);
 
 
 .footer-icons {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   
+  
 }
 
 .footer-icons-subtitle {
 color:#FFF;
-font-family: Roboto;
 font-size: 16px;
 font-weight: 500;
 line-height: 1.5;
 letter-spacing: 0.02em;
-padding-bottom: 16px;
-margin-bottom: 100px;
+margin-bottom: 16px;
 }
 
 .icon-list {
@@ -509,6 +517,8 @@ margin-bottom: 100px;
     justify-content: center;
     background-color: #4D5AE5;
     border-radius: 50%;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
    
 }
 
@@ -516,8 +526,8 @@ margin-bottom: 100px;
     fill: #F4F4FD;
 }
 
-.footer-icon-link:hover {
+.footer-icon-link:hover,  
+.footer-icon-link:focus {
     background-color: #31D0AA;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
